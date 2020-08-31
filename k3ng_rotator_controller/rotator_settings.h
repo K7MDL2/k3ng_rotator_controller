@@ -157,11 +157,8 @@ You can tweak these, but read the online documentation!
 #define AZ_POSITION_PULSE_DEG_PER_PULSE 0.0627
 #define EL_POSITION_PULSE_DEG_PER_PULSE 0.5
 
-<<<<<<< HEAD
 #define PARK_AZIMUTH 0.0      // replace the 0.0 with your park azimuth; azimuth is in raw degrees (i.e. on a 180 degree starting point rotator, 0 degrees = 360)
 #define PARK_ELEVATION 0.0    // replace the 0.0 with your park elevation
-=======
->>>>>>> upstream/master
 #define NOT_PARKED_DETECT_TIME_MS 1000
 
 #define COMMAND_BUFFER_SIZE 50
@@ -338,7 +335,7 @@ You can tweak these, but read the online documentation!
 // Changed in 2020.06.26.02
 // Serial Port Settings
 #define CONTROL_PORT_MAPPED_TO &Serial     // change this line to map the control port to a different serial port (Serial1, Serial2, etc.)
-#define CONTROL_PORT_BAUD_RATE 115200
+#define CONTROL_PORT_BAUD_RATE 38400
 // #define REMOTE_PORT Serial3                 // used to control remote unit
 // #define REMOTE_UNIT_PORT_BAUD_RATE 9600 
 #define GPS_PORT Serial2
@@ -354,7 +351,7 @@ You can tweak these, but read the online documentation!
 #define MOON_UPDATE_POSITION_INTERVAL_MS 5000
 
 // Added in 2020.07.22.02
-#define DEFAULT_ALTITUDE_M 50
+#define DEFAULT_ALTITUDE_M 110
 
 // Added in 2020.07.24.01
 #define SATELLITE_UPDATE_ARRAY_ORDER_INTERVAL_MS 5000
@@ -392,11 +389,3 @@ You can tweak these, but read the online documentation!
 #define SATELLITE_CALC_STAGE_1_RESOLUTION_SECS 120
 #define SATELLITE_CALC_STAGE_2_RESOLUTION_SECS 10
 #define SATELLITE_CALC_STAGE_3_RESOLUTION_SECS 1
-<<<<<<< HEAD
-=======
-
-// Deprecated in 2020.08.30.01
-// #define PARK_AZIMUTH 0.0     // replace the 0.0 with your park azimuth; azimuth is in raw degrees (i.e. on a 180 degree starting point rotator, 0 degrees = 360)
-// #define PARK_ELEVATION 0.0    // replace the 0.0 with your park elevation
-
->>>>>>> upstream/master
