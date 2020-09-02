@@ -1,8 +1,8 @@
 
 /* -------------------------- rotation settings ---------------------------------------*/
 
-#define AZIMUTH_STARTING_POINT_DEFAULT 180      // the starting point in degrees of the azimuthal rotator - only used for initializing EEPROM the first time the code is run                                               
-#define AZIMUTH_ROTATION_CAPABILITY_DEFAULT 450 // the default rotation capability of the rotator in degrees - only used for initializing EEPROM the first time the code is run
+#define AZIMUTH_STARTING_POINT_EEPROM_INITIALIZE 180      // the starting point in degrees of the azimuthal rotator - only used for initializing EEPROM the first time the code is run                                               
+#define AZIMUTH_ROTATION_CAPABILITY_EEPROM_INITIALIZE 450 // the default rotation capability of the rotator in degrees - only used for initializing EEPROM the first time the code is run
 
 /* 
 
@@ -34,13 +34,6 @@ You can tweak these, but read the online documentation!
                                               // you must use raw azimuth (if the azimuth on the rotator crosses over to 0 degrees, add 360
                                               // for example, on a Yaesu 450 degree rotator with a starting point of 180 degrees, and an overlap LED
                                               // turning on when going CW and crossing 180, ANALOG_AZ_OVERLAP_DEGREES should be set for 540 (180 + 360)
-#define OPTION_OVERLAP_LED_BLINK_MS 0                                             
-
-// PWM speed voltage settings
-#define PWM_SPEED_VOLTAGE_X1  64         // 0 to 255
-#define PWM_SPEED_VOLTAGE_X2  128        // 0 to 255
-#define PWM_SPEED_VOLTAGE_X3  191        // 0 to 255
-#define PWM_SPEED_VOLTAGE_X4  253        // 0 to 255
 
 //AZ
 #define AZ_SLOWSTART_DEFAULT 0            // 0 = off ; 1 = on
