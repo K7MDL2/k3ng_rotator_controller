@@ -25,8 +25,10 @@ You can tweak these, but read the online documentation!
 */
 
 // analog voltage calibration - these are default values; you can either tweak these or set via the Yaesu O and F commands (and O2 and F2)....
-#define ANALOG_AZ_FULL_CCW 6
-#define ANALOG_AZ_FULL_CW 1011
+#define ANALOG_AZ_FULL_CCW_EEPROM_INITIALIZE 6
+#define ANALOG_AZ_FULL_CW_EEPROM_INITIALIZE 1011
+#define ANALOG_EL_FULL_DOWN_EEPROM_INITIALIZE 6
+#define ANALOG_EL_FULL_UP_EEPROM_INITIALIZE 1011
 #define ANALOG_EL_0_DEGREES 2
 #define ANALOG_EL_MAX_ELEVATION 1018  // maximum elevation is normally 180 degrees unless change below for ELEVATION_MAXIMUM_DEGREES
 
