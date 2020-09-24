@@ -1,7 +1,7 @@
 
 /* -------------------------- rotation settings ---------------------------------------*/
 
-#define AZIMUTH_STARTING_POINT_EEPROM_INITIALIZE 180      // the starting point in degrees of the azimuthal rotator - only used for initializing EEPROM the first time the code is run                                               
+#define AZIMUTH_STARTING_POINT_EEPROM_INITIALIZE 0      // the starting point in degrees of the azimuthal rotator - only used for initializing EEPROM the first time the code is run                                               
 #define AZIMUTH_ROTATION_CAPABILITY_EEPROM_INITIALIZE 450 // the default rotation capability of the rotator in degrees - only used for initializing EEPROM the first time the code is run
 
 /* 
@@ -35,7 +35,7 @@ You can tweak these, but read the online documentation!
 #define ANALOG_EL_FULL_DOWN_EEPROM_INITIALIZE 1
 #define ANALOG_EL_FULL_UP_EEPROM_INITIALIZE 1023
 
-#define ANALOG_AZ_OVERLAP_DEGREES 540         // if overlap_led above is enabled, turn on overlap led line if azimuth is greater than this setting
+#define ANALOG_AZ_OVERLAP_DEGREES 361        // if overlap_led above is enabled, turn on overlap led line if azimuth is greater than this setting
                                               // you must use raw azimuth (if the azimuth on the rotator crosses over to 0 degrees, add 360
                                               // for example, on a Yaesu 450 degree rotator with a starting point of 180 degrees, and an overlap LED
                                               // turning on when going CW and crossing 180, ANALOG_AZ_OVERLAP_DEGREES should be set for 540 (180 + 360)
@@ -85,15 +85,15 @@ You can tweak these, but read the online documentation!
 #define EL_VARIABLE_FREQ_OUTPUT_HIGH 100    // Frequency in hertz of maximum speed
 
 // Settings for OPTION_AZ_MANUAL_ROTATE_LIMITS
-#define AZ_MANUAL_ROTATE_CCW_LIMIT 0   // if using a rotator that starts at 180 degrees, set this to something like 185
-#define AZ_MANUAL_ROTATE_CW_LIMIT 535  // add 360 to this if you go past 0 degrees (i.e. 180 CW after 0 degrees = 540)
+#define AZ_MANUAL_ROTATE_CCW_LIMIT -1   // if using a rotator that starts at 180 degrees, set this to something like 185
+#define AZ_MANUAL_ROTATE_CW_LIMIT 361  // add 360 to this if you go past 0 degrees (i.e. 180 CW after 0 degrees = 540)
 
 // Settings for OPTION_EL_MANUAL_ROTATE_LIMITS
 #define EL_MANUAL_ROTATE_DOWN_LIMIT -1
 #define EL_MANUAL_ROTATE_UP_LIMIT 181
 
 // Speed pot settings
-#define SPEED_POT_LOW 0
+#define SPEED_POT_LOW 400
 #define SPEED_POT_HIGH 1023
 #define SPEED_POT_LOW_MAP 1
 #define SPEED_POT_HIGH_MAP 255
@@ -107,7 +107,7 @@ You can tweak these, but read the online documentation!
 #define ENCODER_PRESET_TIMEOUT 5000
 
 // various code settings
-#define AZIMUTH_TOLERANCE 3.0            // rotator will stop within X degrees when doing autorotation
+#define AZIMUTH_TOLERANCE 0.4            // rotator will stop within X degrees when doing autorotation
 #define ELEVATION_TOLERANCE 0.1 //1.0
 #define OPERATION_TIMEOUT 120000        // timeout for any rotation operation in mS ; 120 seconds is usually enough unless you have the speed turned down
 #define TIMED_INTERVAL_ARRAY_SIZE 20
@@ -156,7 +156,7 @@ You can tweak these, but read the online documentation!
 #define EEPROM_MAGIC_NUMBER 112
 #define EEPROM_WRITE_DIRTY_CONFIG_TIME  30  //time in seconds
 
-#define DISPLAY_DECIMAL_PLACES 0
+#define DISPLAY_DECIMAL_PLACES 1
 
 #define AZ_POSITION_ROTARY_ENCODER_DEG_PER_PULSE 0.5
 #define EL_POSITION_ROTARY_ENCODER_DEG_PER_PULSE 0.5
@@ -186,15 +186,15 @@ You can tweak these, but read the online documentation!
 #define ROTATION_INDICATOR_PIN_TIME_DELAY_SECONDS 0
 #define ROTATION_INDICATOR_PIN_TIME_DELAY_MINUTES 0
 
-#define AZ_POSITION_INCREMENTAL_ENCODER_PULSES_PER_REV 2000.0
+#define AZ_POSITION_INCREMENTAL_ENCODER_PULSES_PER_REV 5762.0
 #define EL_POSITION_INCREMENTAL_ENCODER_PULSES_PER_REV 2000.0
 #define AZ_INCREMENTAL_ENCODER_ZERO_PULSE_POSITION 0  // can be 0 to 4 x AZ_POSITION_INCREMENTAL_ENCODER_PULSES_PER_REV
 #define EL_INCREMENTAL_ENCODER_ZERO_PULSE_POSITION 0  // can be 0 to 4 x EL_POSITION_INCREMENTAL_ENCODER_PULSES_PER_REV
 
 #define SERIAL_LED_TIME_MS 250
 
-#define DEFAULT_LATITUDE 40.889958
-#define DEFAULT_LONGITUDE -75.585972
+#define DEFAULT_LATITUDE 48.2494
+#define DEFAULT_LONGITUDE -122.4968
 
 #define MOON_TRACKING_CHECK_INTERVAL 5000
 #define MOON_AOS_AZIMUTH_MIN 0
@@ -302,7 +302,7 @@ You can tweak these, but read the online documentation!
 #define PIN_LED_ACTIVE_STATE HIGH
 #define PIN_LED_INACTIVE_STATE LOW   
 
-#define AUDIBLE_ALERT_TYPE 1   // 1 = Logic high/low (set AUDIBLE_PIN_ACTIVE_STATE and AUDIBLE_PIN_INACTIVE_STATE below, 2 = tone (set AUDIBLE_PIN_TONE_FREQ below)
+#define AUDIBLE_ALERT_TYPE 2   // 1 = Logic high/low (set AUDIBLE_PIN_ACTIVE_STATE and AUDIBLE_PIN_INACTIVE_STATE below, 2 = tone (set AUDIBLE_PIN_TONE_FREQ below)
 #define AUDIBLE_ALERT_DURATION_MS 250
 #define AUDIBLE_PIN_ACTIVE_STATE HIGH
 #define AUDIBLE_PIN_INACTIVE_STATE LOW
@@ -311,8 +311,8 @@ You can tweak these, but read the online documentation!
 #define AUDIBLE_ALERT_AT_AZ_TARGET 1
 #define AUDIBLE_ALERT_AT_EL_TARGET 1
 
-#define OVERLAP_LED_ACTIVE_STATE HIGH
-#define OVERLAP_LED_INACTIVE_STATE LOW  
+#define OVERLAP_LED_ACTIVE_STATE LOW
+#define OVERLAP_LED_INACTIVE_STATE HIGH 
 
 #define PRESET_ENCODER_CHANGE_TIME_MS 2000 
 
@@ -398,4 +398,3 @@ You can tweak these, but read the online documentation!
 // Deprecated in 2020.08.30.01
 // #define PARK_AZIMUTH 0.0     // replace the 0.0 with your park azimuth; azimuth is in raw degrees (i.e. on a 180 degree starting point rotator, 0 degrees = 360)
 // #define PARK_ELEVATION 0.0    // replace the 0.0 with your park elevation
-
