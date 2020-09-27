@@ -2,7 +2,7 @@
 /* -------------------------- rotation settings ---------------------------------------*/
 
 #define AZIMUTH_STARTING_POINT_EEPROM_INITIALIZE 0      // the starting point in degrees of the azimuthal rotator - only used for initializing EEPROM the first time the code is run                                               
-#define AZIMUTH_ROTATION_CAPABILITY_EEPROM_INITIALIZE 360 //450 // the default rotation capability of the rotator in degrees - only used for initializing EEPROM the first time the code is run
+#define AZIMUTH_ROTATION_CAPABILITY_EEPROM_INITIALIZE 360 // the default rotation capability of the rotator in degrees - only used for initializing EEPROM the first time the code is run
 
 /* 
 
@@ -35,19 +35,19 @@ You can tweak these, but read the online documentation!
 #define ANALOG_EL_FULL_DOWN_EEPROM_INITIALIZE 1
 #define ANALOG_EL_FULL_UP_EEPROM_INITIALIZE 1023
 
-#define ANALOG_AZ_OVERLAP_DEGREES 361        // if overlap_led above is enabled, turn on overlap led line if azimuth is greater than this setting
+//#define ANALOG_AZ_OVERLAP_DEGREES 450        // if overlap_led above is enabled, turn on overlap led line if azimuth is greater than this setting
                                               // you must use raw azimuth (if the azimuth on the rotator crosses over to 0 degrees, add 360
                                               // for example, on a Yaesu 450 degree rotator with a starting point of 180 degrees, and an overlap LED
                                               // turning on when going CW and crossing 180, ANALOG_AZ_OVERLAP_DEGREES should be set for 540 (180 + 360)
                                               // To totally disable overlap functionality, comment out this #define
 
-#define OPTION_OVERLAP_LED_BLINK_MS 0                                             
+//#define OPTION_OVERLAP_LED_BLINK_MS 0                                             
 
 // PWM speed voltage settings
-#define PWM_SPEED_VOLTAGE_X1  64         // 0 to 255
-#define PWM_SPEED_VOLTAGE_X2  128        // 0 to 255
-#define PWM_SPEED_VOLTAGE_X3  191        // 0 to 255
-#define PWM_SPEED_VOLTAGE_X4  253        // 0 to 255
+#define PWM_SPEED_VOLTAGE_X1  30  //64         // 0 to 255
+#define PWM_SPEED_VOLTAGE_X2  40  //128        // 0 to 255
+#define PWM_SPEED_VOLTAGE_X3  50  //191        // 0 to 255
+#define PWM_SPEED_VOLTAGE_X4  60  //253        // 0 to 255
 
 //AZ
 #define AZ_SLOWSTART_DEFAULT 0            // 0 = off ; 1 = on
@@ -85,18 +85,18 @@ You can tweak these, but read the online documentation!
 #define EL_VARIABLE_FREQ_OUTPUT_HIGH 100    // Frequency in hertz of maximum speed
 
 // Settings for OPTION_AZ_MANUAL_ROTATE_LIMITS
-#define AZ_MANUAL_ROTATE_CCW_LIMIT -1   // if using a rotator that starts at 180 degrees, set this to something like 185
-#define AZ_MANUAL_ROTATE_CW_LIMIT 361  // add 360 to this if you go past 0 degrees (i.e. 180 CW after 0 degrees = 540)
+#define AZ_MANUAL_ROTATE_CCW_LIMIT 1   // if using a rotator that starts at 180 degrees, set this to something like 185
+#define AZ_MANUAL_ROTATE_CW_LIMIT 359 // add 360 to this if you go past 0 degrees (i.e. 180 CW after 0 degrees = 540)
 
 // Settings for OPTION_EL_MANUAL_ROTATE_LIMITS
 #define EL_MANUAL_ROTATE_DOWN_LIMIT -1
 #define EL_MANUAL_ROTATE_UP_LIMIT 181
 
 // Speed pot settings
-#define SPEED_POT_LOW 400
+#define SPEED_POT_LOW 00
 #define SPEED_POT_HIGH 1023
-#define SPEED_POT_LOW_MAP 40
-#define SPEED_POT_HIGH_MAP 255
+#define SPEED_POT_LOW_MAP 20
+#define SPEED_POT_HIGH_MAP 60
 
 // Azimuth preset pot settings
 #define AZ_PRESET_POT_FULL_CW 0
@@ -164,8 +164,8 @@ You can tweak these, but read the online documentation!
 #define AZ_POSITION_PULSE_DEG_PER_PULSE 0.0627
 #define EL_POSITION_PULSE_DEG_PER_PULSE 0.5
 
-#define PARK_AZIMUTH 0.0      // replace the 0.0 with your park azimuth; azimuth is in raw degrees (i.e. on a 180 degree starting point rotator, 0 degrees = 360)
-#define PARK_ELEVATION 0.0    // replace the 0.0 with your park elevation
+#define PARK_AZIMUTH 120.0      // replace the 0.0 with your park azimuth; azimuth is in raw degrees (i.e. on a 180 degree starting point rotator, 0 degrees = 360)
+#define PARK_ELEVATION 10.0    // replace the 0.0 with your park elevation
 #define NOT_PARKED_DETECT_TIME_MS 1000
 
 #define COMMAND_BUFFER_SIZE 50
@@ -175,8 +175,8 @@ You can tweak these, but read the online documentation!
 #define AZ_REMOTE_UNIT_QUERY_TIME_MS 150         // how often we query the remote remote for azimuth
 #define EL_REMOTE_UNIT_QUERY_TIME_MS 150         // how often we query the remote remote for elevation
 
-#define AZIMUTH_SMOOTHING_FACTOR 0      // value = 0 to 99.9
-#define ELEVATION_SMOOTHING_FACTOR 0    // value = 0 to 99.9
+#define AZIMUTH_SMOOTHING_FACTOR 10      // value = 0 to 99.9
+#define ELEVATION_SMOOTHING_FACTOR 10    // value = 0 to 99.9
 
 #define AZIMUTH_MEASUREMENT_FREQUENCY_MS 50        // this does not apply if using FEATURE_AZ_POSITION_GET_FROM_REMOTE_UNIT
 #define ELEVATION_MEASUREMENT_FREQUENCY_MS 50      // this does not apply if using FEATURE_EL_POSITION_GET_FROM_REMOTE_UNIT
@@ -188,7 +188,7 @@ You can tweak these, but read the online documentation!
 #define ROTATION_INDICATOR_PIN_TIME_DELAY_SECONDS 1
 #define ROTATION_INDICATOR_PIN_TIME_DELAY_MINUTES 0
 
-#define AZ_POSITION_INCREMENTAL_ENCODER_PULSES_PER_REV 5742.0
+#define AZ_POSITION_INCREMENTAL_ENCODER_PULSES_PER_REV 5842.0
 #define EL_POSITION_INCREMENTAL_ENCODER_PULSES_PER_REV 5742.0
 #define AZ_INCREMENTAL_ENCODER_ZERO_PULSE_POSITION 0  // can be 0 to 4 x AZ_POSITION_INCREMENTAL_ENCODER_PULSES_PER_REV
 #define EL_INCREMENTAL_ENCODER_ZERO_PULSE_POSITION 0  // can be 0 to 4 x EL_POSITION_INCREMENTAL_ENCODER_PULSES_PER_REV
