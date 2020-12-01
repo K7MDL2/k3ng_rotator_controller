@@ -42,7 +42,7 @@
 //#define FEATURE_ADC_RESOLUTION12   // 12 bit ADC resolution for Teensy 3.x, Arduino Due Zero MKR families 
 
 /* position sensors - pick one for azimuth and one for elevation if using an az/el rotator */
-// #define FEATURE_AZ_POSITION_POTENTIOMETER   //this is used for both a voltage from a rotator control or a homebrew rotator with a potentiometer
+#define FEATURE_AZ_POSITION_POTENTIOMETER   //this is used for both a voltage from a rotator control or a homebrew rotator with a potentiometer
 // #define FEATURE_AZ_POSITION_ROTARY_ENCODER
 // #define FEATURE_AZ_POSITION_ROTARY_ENCODER_USE_PJRC_LIBRARY  // library @ http://www.pjrc.com/teensy/td_libs_Encoder.html  
 // #define FEATURE_AZ_POSITION_PULSE_INPUT
@@ -53,7 +53,7 @@
 // #define FEATURE_AZ_POSITION_ADAFRUIT_LSM303              // Uncomment for azimuth using LSM303 compass and Adafruit library (https://github.com/adafruit/Adafruit_LSM303) (also uncomment object declaration below)
 // #define FEATURE_AZ_POSITION_POLOLU_LSM303              // Uncomment for azimuth using LSM303 compass and Polulu library
 // #define FEATURE_AZ_POSITION_HH12_AS5045_SSI
-#define FEATURE_AZ_POSITION_INCREMENTAL_ENCODER
+// #define FEATURE_AZ_POSITION_INCREMENTAL_ENCODER
 // #define FEATURE_AZ_POSITION_A2_ABSOLUTE_ENCODER
 // #define FEATURE_AZ_POSITION_MECHASOLUTION_QMC5883   // QMC5883 digital compass support using Mechasolution library at https://github.com/keepworking/Mecha_QMC5883L
 
@@ -126,7 +126,7 @@
 // #define FEATURE_EL_ROTATION_STALL_DETECTION // Elevation rotation stall detection - pin: el_rotation_stall_detected
 // #define OPTION_ROTATION_STALL_DETECTION_SERIAL_MESSAGE // Sends message out serial port when rotation stall has been detected
 // #define FEATURE_ANCILLARY_PIN_CONTROL     // control I/O pins with serial commands \F, \N, \P
-#define FEATURE_JOYSTICK_CONTROL          // analog joystick support
+// #define FEATURE_JOYSTICK_CONTROL          // analog joystick support
 // #define OPTION_JOYSTICK_REVERSE_X_AXIS
 // #define OPTION_JOYSTICK_REVERSE_Y_AXIS
 #define OPTION_EL_SPEED_FOLLOWS_AZ_SPEED    // changing the azimith speed with Yaesu X commands or an azimuth speed pot will also change elevation speed
