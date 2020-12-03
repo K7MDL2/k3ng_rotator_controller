@@ -126,7 +126,7 @@
 // #define FEATURE_EL_ROTATION_STALL_DETECTION // Elevation rotation stall detection - pin: el_rotation_stall_detected
 // #define OPTION_ROTATION_STALL_DETECTION_SERIAL_MESSAGE // Sends message out serial port when rotation stall has been detected
 // #define FEATURE_ANCILLARY_PIN_CONTROL     // control I/O pins with serial commands \F, \N, \P
-#define FEATURE_JOYSTICK_CONTROL          // analog joystick support
+// #define FEATURE_JOYSTICK_CONTROL          // analog joystick support
 // #define OPTION_JOYSTICK_REVERSE_X_AXIS
 // #define OPTION_JOYSTICK_REVERSE_Y_AXIS
 #define OPTION_EL_SPEED_FOLLOWS_AZ_SPEED    // changing the azimith speed with Yaesu X commands or an azimuth speed pot will also change elevation speed
