@@ -1,7 +1,7 @@
 
 /* -------------------------- rotation settings ---------------------------------------*/
 
-#define AZIMUTH_STARTING_POINT_EEPROM_INITIALIZE 0      // the starting point in degrees of the azimuthal rotator - only used for initializing EEPROM the first time the code is run                                               
+#define AZIMUTH_STARTING_POINT_EEPROM_INITIALIZE 181      // the starting point in degrees of the azimuthal rotator - only used for initializing EEPROM the first time the code is run                                               
 #define AZIMUTH_ROTATION_CAPABILITY_EEPROM_INITIALIZE 360 // the default rotation capability of the rotator in degrees - only used for initializing EEPROM the first time the code is run
 
 /* 
@@ -31,7 +31,7 @@ You can tweak these, but read the online documentation!
 // these correspond with the analog input voltage
 //  a value of 1 is approximately 0 volts, a value of 1024 is approximately 5 volts (or 3.3 volts on some boards)
 #define ANALOG_AZ_FULL_CCW_EEPROM_INITIALIZE 1
-#define ANALOG_AZ_FULL_CW_EEPROM_INITIALIZE 1023
+#define ANALOG_AZ_FULL_CW_EEPROM_INITIALIZE 147
 #define ANALOG_EL_FULL_DOWN_EEPROM_INITIALIZE 1
 #define ANALOG_EL_FULL_UP_EEPROM_INITIALIZE 1023
 
@@ -85,8 +85,8 @@ You can tweak these, but read the online documentation!
 #define EL_VARIABLE_FREQ_OUTPUT_HIGH 100    // Frequency in hertz of maximum speed
 
 // Settings for OPTION_AZ_MANUAL_ROTATE_LIMITS
-#define AZ_MANUAL_ROTATE_CCW_LIMIT 1   // if using a rotator that starts at 180 degrees, set this to something like 185
-#define AZ_MANUAL_ROTATE_CW_LIMIT 359 // add 360 to this if you go past 0 degrees (i.e. 180 CW after 0 degrees = 540)
+#define AZ_MANUAL_ROTATE_CCW_LIMIT 185   // if using a rotator that starts at 180 degrees, set this to something like 185
+#define AZ_MANUAL_ROTATE_CW_LIMIT 540 // add 360 to this if you go past 0 degrees (i.e. 180 CW after 0 degrees = 540)
 
 // Settings for OPTION_EL_MANUAL_ROTATE_LIMITS
 #define EL_MANUAL_ROTATE_DOWN_LIMIT -1
@@ -107,7 +107,7 @@ You can tweak these, but read the online documentation!
 #define ENCODER_PRESET_TIMEOUT 5000
 
 // various code settings
-#define AZIMUTH_TOLERANCE 0.4            // rotator will stop within X degrees when doing autorotation
+#define AZIMUTH_TOLERANCE 5.0            // rotator will stop within X degrees when doing autorotation
 #define ELEVATION_TOLERANCE 0.1 //1.0
 #define OPERATION_TIMEOUT 120000        // timeout for any rotation operation in mS ; 120 seconds is usually enough unless you have the speed turned down
 #define TIMED_INTERVAL_ARRAY_SIZE 20
@@ -164,7 +164,7 @@ You can tweak these, but read the online documentation!
 #define AZ_POSITION_PULSE_DEG_PER_PULSE 0.0627
 #define EL_POSITION_PULSE_DEG_PER_PULSE 0.5
 
-#define PARK_AZIMUTH 120.0      // replace the 0.0 with your park azimuth; azimuth is in raw degrees (i.e. on a 180 degree starting point rotator, 0 degrees = 360)
+#define PARK_AZIMUTH 0.0      // replace the 0.0 with your park azimuth; azimuth is in raw degrees (i.e. on a 180 degree starting point rotator, 0 degrees = 360)
 #define PARK_ELEVATION 10.0    // replace the 0.0 with your park elevation
 #define NOT_PARKED_DETECT_TIME_MS 1000
 
@@ -175,7 +175,7 @@ You can tweak these, but read the online documentation!
 #define AZ_REMOTE_UNIT_QUERY_TIME_MS 150         // how often we query the remote remote for azimuth
 #define EL_REMOTE_UNIT_QUERY_TIME_MS 150         // how often we query the remote remote for elevation
 
-#define AZIMUTH_SMOOTHING_FACTOR 10      // value = 0 to 99.9
+#define AZIMUTH_SMOOTHING_FACTOR 20      // value = 0 to 99.9
 #define ELEVATION_SMOOTHING_FACTOR 10    // value = 0 to 99.9
 
 #define AZIMUTH_MEASUREMENT_FREQUENCY_MS 50        // this does not apply if using FEATURE_AZ_POSITION_GET_FROM_REMOTE_UNIT

@@ -10,22 +10,22 @@
 
 /* azimuth pins --------------------- (use just the azimuth pins for an azimuth-only rotator) */
 
-#define rotate_cw 5              // goes high to activate rotator R (CW) rotation - pin 1 on Yaesu connector
-#define rotate_ccw 6             // goes high to activate rotator L (CCW) rotation - pin 2 on Yaesu connector
-#define rotate_cw_ccw  0         // goes high for both CW and CCW rotation
+#define rotate_cw 3              // goes high to activate rotator R (CW) rotation - pin 1 on Yaesu connector
+#define rotate_ccw 4             // goes high to activate rotator L (CCW) rotation - pin 2 on Yaesu connector
+#define rotate_cw_ccw  5         // goes high for both CW and CCW rotation
 #define rotate_cw_pwm 0          // optional - PWM CW output - set to 0 to disable (must be PWM capable pin)
 #define rotate_ccw_pwm 0         // optional - PWM CCW output - set to 0 to disable (must be PWM capable pin)
-#define rotate_cw_ccw_pwm 7      // optional - PWM on CW and CCW output - set to 0 to disable (must be PWM capable pin)
+#define rotate_cw_ccw_pwm 0      // optional - PWM on CW and CCW output - set to 0 to disable (must be PWM capable pin)
 #define rotate_cw_freq 0         // optional - CW variable frequency output
 #define rotate_ccw_freq 0        // optional - CCW variable frequency output
 #define button_cw 0              // normally open button to ground for manual CW rotation (schematic pin: A2)
 #define button_ccw 0             // normally open button to ground for manual CCW rotation (schematic pin: A3)
 #define serial_led 0             // LED blinks when command is received on serial port (set to 0 to disable)
-#define rotator_analog_az 0     // reads analog azimuth voltage from rotator - pin 4 on Yaesu connector
+#define rotator_analog_az A2     // reads analog azimuth voltage from rotator - pin 4 on Yaesu connector
 #define azimuth_speed_voltage 0  // optional - PWM output for speed control voltage feed into rotator (on continually unlike rotate_cw_pwm and rotate_ccw_pwm)
 #define overlap_led 0            // line goes active when azimuth rotator is in overlap (> 360 rotators)
 #define brake_az 0               // goes high to disengage azimuth brake (set to 0 to disable)
-#define az_speed_pot A0           // connect to wiper of 1K to 10K potentiometer for speed control (set to 0 to disable)
+#define az_speed_pot 0           // connect to wiper of 1K to 10K potentiometer for speed control (set to 0 to disable)
 #define az_preset_pot 0          // connect to wiper of 1K to 10K potentiometer for preset control (set to 0 to disable)
 #define preset_start_button 0    // connect to momentary switch (ground on button press) for preset start (set to 0 to disable or for preset automatic start)
 #define button_stop 0            // connect to momentary switch (ground on button press) for preset stop (set to 0 to disable or for preset automatic start)
@@ -174,7 +174,7 @@
 #endif //FEATURE_GPS
 
 #ifdef FEATURE_POWER_SWITCH
-  #define power_switch 0             // use with FEATURE_POWER_SWITCH
+  #define power_switch 5             // use with FEATURE_POWER_SWITCH
 #endif //FEATURE_POWER_SWITCH
 
 #ifdef FEATURE_EL_POSITION_MEMSIC_2125
