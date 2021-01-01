@@ -349,7 +349,7 @@ You can tweak these, but read the online documentation!
 #define GPS_PORT_BAUD_RATE 9600
 // #define GPS_MIRROR_PORT Serial1          // use this to mirror output from a GPS unit into the Arduino out another port (uncomment to enable)
 // #define GPS_MIRROR_PORT_BAUD_RATE 9600
-#define nexSerial Serial3
+#define nexSerial Serial1
 #define NEXTION_SERIAL_BAUD 115200
 // #define OPTION_SEND_STRING_OUT_CONTROL_PORT_WHEN_INITIALIZING_STRING ("test\n\r")
 

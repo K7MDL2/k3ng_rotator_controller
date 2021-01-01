@@ -1,0 +1,47 @@
+VK4GHZ Nextion NX4832K035 for K3NG Rotator Controller
+
+V2021-01-01-01
+
+Preset tags colour & font can now be changed
+User Defined Buttons now have name tags
+Satellite title bar character length extended by several characters - long names were being cropped!
+Initialize EEPROM button added
+Toggle Center button added
+Clock time now displayed on Features page
+Never ending pixel-by-pixel cosmetic and alignment tweaks !
+
+
+
+V2020-12-17-01
+
+User Defined Functions page added.
+UDF page can be set to show/hide on Config page.
+
+UDF page contains four buttons that send extended backslash commands:
+\?U1
+\?U2
+\?U3
+\?U4
+
+These generic command buttons can be detected by employing custom code in the main Arduino .ino file, and to carry out whatever the user desires!
+(Not currently supported by official code)
+
+
+Example for UDF1 - this toggles Az slowstart and slowdown setting
+
+if ((input_buffer[2] == 'U') && (input_buffer[3] == '1')) {  // \?U1 - User 1 Defined
+  az_slowstart_active =!az_slowstart_active;
+  az_slowdown_active =!az_slowdown_active;
+  strconditionalcpy(return_string, "\\!OKRL", include_response_code);     
+}
+
+
+
+Example for UDF2 - this toggles El slowstart and slowdown setting
+
+if ((input_buffer[2] == 'U') && (input_buffer[3] == '2')) {  // \?U2 - User 2 Defined
+  el_slowstart_active = !el_slowstart_active;
+  el_slowdown_active = !el_slowdown_active;
+  strconditionalcpy(return_string, "\\!OKRL", include_response_code);     
+}
+

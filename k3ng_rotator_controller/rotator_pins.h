@@ -12,7 +12,7 @@
 
 #define rotate_cw 3              // goes high to activate rotator R (CW) rotation - pin 1 on Yaesu connector
 #define rotate_ccw 4             // goes high to activate rotator L (CCW) rotation - pin 2 on Yaesu connector
-#define rotate_cw_ccw  5         // goes high for both CW and CCW rotation
+#define rotate_cw_ccw  0         // goes high for both CW and CCW rotation
 #define rotate_cw_pwm 0          // optional - PWM CW output - set to 0 to disable (must be PWM capable pin)
 #define rotate_ccw_pwm 0         // optional - PWM CCW output - set to 0 to disable (must be PWM capable pin)
 #define rotate_cw_ccw_pwm 0      // optional - PWM on CW and CCW output - set to 0 to disable (must be PWM capable pin)
@@ -26,6 +26,14 @@
 #define az_stepper_motor_pulse 0 //0
 #define az_stepper_motor_direction 0
 #define az_rotation_stall_detected 0
+define rotator_analog_az A2     // reads analog azimuth voltage from rotator - pin 4 on Yaesu connector
+#define azimuth_speed_voltage 0  // optional - PWM output for speed control voltage feed into rotator (on continually unlike rotate_cw_pwm and rotate_ccw_pwm)
+#define overlap_led 0            // line goes active when azimuth rotator is in overlap (> 360 rotators)
+#define brake_az 0               // goes high to disengage azimuth brake (set to 0 to disable)
+#define az_speed_pot 0           // connect to wiper of 1K to 10K potentiometer for speed control (set to 0 to disable)
+#define preset_start_button 0    // connect to momentary switch (ground on button press) for preset start (set to 0 to disable or for preset automatic start)
+#define button_stop 0            // connect to momentary switch (ground on button press) for preset stop (set to 0 to disable or for preset automatic start)
+#define rotation_indication_pin 4  // light LED solid when rotator is in motion.  ROTATION_INDICATOR_PIN_ACTIVE_STATE in settings.h defines Active state
 
 
 

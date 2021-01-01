@@ -6,23 +6,23 @@
 
 /* main features */
 
-//#define FEATURE_ELEVATION_CONTROL      // uncomment this for AZ/EL rotators
+#define FEATURE_ELEVATION_CONTROL      // uncomment this for AZ/EL rotators
 #define FEATURE_YAESU_EMULATION           // uncomment this for Yaesu GS-232 emulation on control port
 // #define FEATURE_EASYCOM_EMULATION      // Easycom protocol emulation on control port
 // #define FEATURE_DCU_1_EMULATION        // DCU-1 protocol emulation on control port (only supports azimuth only systems)
 
-//#define FEATURE_MOON_TRACKING
-//#define FEATURE_SUN_TRACKING
+#define FEATURE_MOON_TRACKING
+#define FEATURE_SUN_TRACKING
 #define FEATURE_CLOCK
-#define FEATURE_GPS
-#define FEATURE_RTC_DS1307
+//#define FEATURE_GPS
+//#define FEATURE_RTC_DS1307
 // #define FEATURE_RTC_PCF8583
 // #define FEATURE_ETHERNET
 // #define FEATURE_STEPPER_MOTOR    // Requires TimerFive library to be copied to the Arduino libraries directory (If using OPTION_STEPPER_MOTOR_USE_TIMER_ONE_INSTEAD_OF_FIVE below, copy the TimeOne library)
 // #define FEATURE_AUTOCORRECT
 // #define FEATURE_TEST_DISPLAY_AT_STARTUP  
 
-//#define FEATURE_SATELLITE_TRACKING  // https://github.com/k3ng/k3ng_rotator_controller/wiki/707-Satellite-Tracking
+#define FEATURE_SATELLITE_TRACKING  // https://github.com/k3ng/k3ng_rotator_controller/wiki/707-Satellite-Tracking
 
 #define LANGUAGE_ENGLISH         // all languages customized in rotator_language.h
 // #define LANGUAGE_SPANISH
@@ -43,7 +43,7 @@
 
 /* position sensors - pick one for azimuth and one for elevation if using an az/el rotator */
 #define FEATURE_AZ_POSITION_POTENTIOMETER   //this is used for both a voltage from a rotator control or a homebrew rotator with a potentiometer
-// #define FEATURE_AZ_POSITION_ROTARY_ENCODER
+//#define FEATURE_AZ_POSITION_ROTARY_ENCODER
 // #define FEATURE_AZ_POSITION_ROTARY_ENCODER_USE_PJRC_LIBRARY  // library @ http://www.pjrc.com/teensy/td_libs_Encoder.html  
 // #define FEATURE_AZ_POSITION_PULSE_INPUT
 // #define FEATURE_AZ_POSITION_HMC5883L            // HMC5883L digital compass support
@@ -59,7 +59,7 @@
 
 
 #define FEATURE_EL_POSITION_POTENTIOMETER
-// #define FEATURE_EL_POSITION_ROTARY_ENCODER
+//#define FEATURE_EL_POSITION_ROTARY_ENCODER
 // #define FEATURE_EL_POSITION_ROTARY_ENCODER_USE_PJRC_LIBRARY  // library @ http://www.pjrc.com/teensy/td_libs_Encoder.html  
 // #define FEATURE_EL_POSITION_PULSE_INPUT
 // #define FEATURE_EL_POSITION_ADXL345_USING_LOVE_ELECTRON_LIB // Uncomment for elevation ADXL345 accelerometer support using ADXL345 library
@@ -90,7 +90,7 @@
 // #define FEATURE_SUN_PUSHBUTTON_AZ_EL_CALIBRATION
 // #define FEATURE_MOON_PUSHBUTTON_AZ_EL_CALIBRATION
 
-#define FEATURE_AUDIBLE_ALERT
+//#define FEATURE_AUDIBLE_ALERT
 
 /* preset rotary encoder features and options */
 // #define FEATURE_AZ_PRESET_ENCODER            // Uncomment for Rotary Encoder Azimuth Preset support
@@ -129,7 +129,7 @@
 // #define FEATURE_JOYSTICK_CONTROL          // analog joystick support
 // #define OPTION_JOYSTICK_REVERSE_X_AXIS
 // #define OPTION_JOYSTICK_REVERSE_Y_AXIS
-#define OPTION_EL_SPEED_FOLLOWS_AZ_SPEED    // changing the azimith speed with Yaesu X commands or an azimuth speed pot will also change elevation speed
+//#define OPTION_EL_SPEED_FOLLOWS_AZ_SPEED    // changing the azimith speed with Yaesu X commands or an azimuth speed pot will also change elevation speed
 // #define OPTION_PULSE_IGNORE_AMBIGUOUS_PULSES // for azimuth and elevation position pulse input feature, ignore pulses that arrive when no rotation is active
 // #define OPTION_BUTTON_RELEASE_NO_SLOWDOWN  // disables slowdown when CW or CCW button is released, or stop button is depressed
 #define OPTION_SYNC_RTC_TO_GPS // if both realtime clock and GPS are present, synchronize realtime clock to GPS
