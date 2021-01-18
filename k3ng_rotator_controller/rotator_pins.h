@@ -10,8 +10,8 @@
 
 /* azimuth pins --------------------- (use just the azimuth pins for an azimuth-only rotator) */
 
-#define rotate_cw 3              // goes high to activate rotator R (CW) rotation - pin 1 on Yaesu connector
-#define rotate_ccw 4             // goes high to activate rotator L (CCW) rotation - pin 2 on Yaesu connector
+#define rotate_cw 6              // goes high to activate rotator R (CW) rotation - pin 1 on Yaesu connector
+#define rotate_ccw 7             // goes high to activate rotator L (CCW) rotation - pin 2 on Yaesu connector
 #define rotate_cw_ccw  0         // goes high for both CW and CCW rotation
 #define rotate_cw_pwm 0          // optional - PWM CW output - set to 0 to disable (must be PWM capable pin)
 #define rotate_ccw_pwm 0         // optional - PWM CCW output - set to 0 to disable (must be PWM capable pin)
@@ -21,19 +21,19 @@
 #define button_cw 0              // normally open button to ground for manual CW rotation (schematic pin: A2)
 #define button_ccw 0             // normally open button to ground for manual CCW rotation (schematic pin: A3)
 #define serial_led 0             // LED blinks when command is received on serial port (set to 0 to disable)
-#define az_preset_pot 0          // connect to wiper of 1K to 10K potentiometer for preset control (set to 0 to disable)
-#define blink_led 0
-#define az_stepper_motor_pulse 0 //0
-#define az_stepper_motor_direction 0
-#define az_rotation_stall_detected 0
-define rotator_analog_az A2     // reads analog azimuth voltage from rotator - pin 4 on Yaesu connector
+#define rotator_analog_az A0     // reads analog azimuth voltage from rotator - pin 4 on Yaesu connector
 #define azimuth_speed_voltage 0  // optional - PWM output for speed control voltage feed into rotator (on continually unlike rotate_cw_pwm and rotate_ccw_pwm)
 #define overlap_led 0            // line goes active when azimuth rotator is in overlap (> 360 rotators)
 #define brake_az 0               // goes high to disengage azimuth brake (set to 0 to disable)
 #define az_speed_pot 0           // connect to wiper of 1K to 10K potentiometer for speed control (set to 0 to disable)
+#define az_preset_pot 0          // connect to wiper of 1K to 10K potentiometer for preset control (set to 0 to disable)
 #define preset_start_button 0    // connect to momentary switch (ground on button press) for preset start (set to 0 to disable or for preset automatic start)
 #define button_stop 0            // connect to momentary switch (ground on button press) for preset stop (set to 0 to disable or for preset automatic start)
-#define rotation_indication_pin 4  // light LED solid when rotator is in motion.  ROTATION_INDICATOR_PIN_ACTIVE_STATE in settings.h defines Active state
+#define rotation_indication_pin 0
+#define blink_led 0
+#define az_stepper_motor_pulse 0 //0
+#define az_stepper_motor_direction 0
+#define az_rotation_stall_detected 0
 
 
 
@@ -47,7 +47,7 @@ define rotator_analog_az A2     // reads analog azimuth voltage from rotator - p
   #define rotate_up_down_pwm 0      // optional - PWM on both UP and DOWN (must be PWM capable pin)
   #define rotate_up_freq 0          // optional - UP variable frequency output
   #define rotate_down_freq 0        // optional - UP variable frequency output
-  #define rotator_analog_el A11      // reads analog elevation voltage from rotator
+  #define rotator_analog_el A1      // reads analog elevation voltage from rotator
   #define button_up 0               // normally open button to ground for manual up elevation
   #define button_down 0             // normally open button to ground for manual down rotation
   #define brake_el 0                // goes high to disengage elevation brake (set to 0 to disable)
@@ -69,7 +69,7 @@ define rotator_analog_az A2     // reads analog azimuth voltage from rotator - p
 
 #if defined(FEATURE_AZ_POSITION_ROTARY_ENCODER) || defined(FEATURE_AZ_POSITION_ROTARY_ENCODER_USE_PJRC_LIBRARY)
   #define az_rotary_position_pin1 0                     // CW Encoder Pin
-  #define az_rotary_position_pin2 0                    // CCW Encoder Pin
+  #define az_rotary_position_pin2 0                     // CCW Encoder Pin
 #endif //FEATURE_AZ_POSITION_ROTARY_ENCODER
 
 #if defined(FEATURE_EL_POSITION_ROTARY_ENCODER) || defined(FEATURE_EL_POSITION_ROTARY_ENCODER_USE_PJRC_LIBRARY)
@@ -83,7 +83,7 @@ define rotator_analog_az A2     // reads analog azimuth voltage from rotator - p
 #endif                                                // read http://arduino.cc/en/Reference/AttachInterrupt for details on hardware and interrupts
 
 #ifdef FEATURE_EL_POSITION_PULSE_INPUT
-  #define el_position_pulse_pin 0                       // must be an interrupt capable pin!
+  #define el_position_pulse_pin 1                       // must be an interrupt capable pin!
   #define EL_POSITION_PULSE_PIN_INTERRUPT 1             // Uno: pin 2 = interrupt 0, pin 3 = interrupt 1 ; Mega: pin 2 = interrupt 0, pin 3 = interrupt 1, pin 21 = interrupt 2, pin 20 = interrupt 3, pin 19 = interrupt 4, pin 18 = interrupt 5
 #endif                                                // read http://arduino.cc/en/Reference/AttachInterrupt for details on hardware and interrupts
 
@@ -92,17 +92,17 @@ define rotator_analog_az A2     // reads analog azimuth voltage from rotator - p
 #endif
 
 //classic 4 bit LCD pins
-#define lcd_4_bit_rs_pin 52
-#define lcd_4_bit_enable_pin 51
-#define lcd_4_bit_d4_pin 45
-#define lcd_4_bit_d5_pin 44
-#define lcd_4_bit_d6_pin 43
-#define lcd_4_bit_d7_pin 42
+#define lcd_4_bit_rs_pin 12
+#define lcd_4_bit_enable_pin 11
+#define lcd_4_bit_d4_pin 5
+#define lcd_4_bit_d5_pin 4
+#define lcd_4_bit_d6_pin 3
+#define lcd_4_bit_d7_pin 2
 
 
 #ifdef FEATURE_JOYSTICK_CONTROL
-  #define pin_joystick_x 0
-  #define pin_joystick_y 0
+  #define pin_joystick_x 14
+  #define pin_joystick_y 15
 #endif //FEATURE_JOYSTICK_CONTROL
 
 #ifdef FEATURE_AZ_POSITION_HH12_AS5045_SSI
@@ -130,18 +130,18 @@ define rotator_analog_az A2     // reads analog azimuth voltage from rotator - p
 #endif //FEATURE_LIMIT_SENSE
 
 #ifdef FEATURE_AZ_POSITION_INCREMENTAL_ENCODER
-  #define az_incremental_encoder_pin_phase_a 0 //3 must be an interrupt capable pin
-  #define az_incremental_encoder_pin_phase_b 0 // must be an interrupt capable pin
-  #define az_incremental_encoder_pin_phase_z 0 //4
-  #define AZ_POSITION_INCREMENTAL_ENCODER_A_PIN_INTERRUPT 0 //0             // Uno: pin 2 = interrupt 0, pin 3 = interrupt 1 ; Mega: pin 2 = interrupt 0, pin 3 = interrupt 1, pin 21 = interrupt 2, pin 20 = interrupt 3, pin 19 = interrupt 4, pin 18 = interrupt 5
-  #define AZ_POSITION_INCREMENTAL_ENCODER_B_PIN_INTERRUPT 1 //1             // Uno: pin 2 = interrupt 0, pin 3 = interrupt 1 ; Mega: pin 2 = interrupt 0, pin 3 = interrupt 1, pin 21 = interrupt 2, pin 20 = interrupt 3, pin 19 = interrupt 4, pin 18 = interrupt 5
+  #define az_incremental_encoder_pin_phase_a 18 //3 must be an interrupt capable pin
+  #define az_incremental_encoder_pin_phase_b 19 //3 // must be an interrupt capable pin
+  #define az_incremental_encoder_pin_phase_z 22 //4
+  #define AZ_POSITION_INCREMENTAL_ENCODER_A_PIN_INTERRUPT 5 //0             // Uno: pin 2 = interrupt 0, pin 3 = interrupt 1 ; Mega: pin 2 = interrupt 0, pin 3 = interrupt 1, pin 21 = interrupt 2, pin 20 = interrupt 3, pin 19 = interrupt 4, pin 18 = interrupt 5
+  #define AZ_POSITION_INCREMENTAL_ENCODER_B_PIN_INTERRUPT 4 //1             // Uno: pin 2 = interrupt 0, pin 3 = interrupt 1 ; Mega: pin 2 = interrupt 0, pin 3 = interrupt 1, pin 21 = interrupt 2, pin 20 = interrupt 3, pin 19 = interrupt 4, pin 18 = interrupt 5
                                                                               // read http://arduino.cc/en/Reference/AttachInterrupt for details on hardware and interrupts
 #endif //FEATURE_AZ_POSITION_INCREMENTAL_ENCODER
 
 #ifdef FEATURE_EL_POSITION_INCREMENTAL_ENCODER
-  #define el_incremental_encoder_pin_phase_a 0 //18 //2 // must be an interrupt capable pin
-  #define el_incremental_encoder_pin_phase_b 0 //19 //3 // must be an interrupt capable pin
-  #define el_incremental_encoder_pin_phase_z 0 //22 //4
+  #define el_incremental_encoder_pin_phase_a 2 //18 //2 // must be an interrupt capable pin
+  #define el_incremental_encoder_pin_phase_b 3 //19 //3 // must be an interrupt capable pin
+  #define el_incremental_encoder_pin_phase_z 5 //22 //4
   #define EL_POSITION_INCREMENTAL_ENCODER_A_PIN_INTERRUPT 0 //5 //0             // Uno: pin 2 = interrupt 0, pin 3 = interrupt 1 ; Mega: pin 2 = interrupt 0, pin 3 = interrupt 1, pin 21 = interrupt 2, pin 20 = interrupt 3, pin 19 = interrupt 4, pin 18 = interrupt 5
   #define EL_POSITION_INCREMENTAL_ENCODER_B_PIN_INTERRUPT 1 //4 //1             // Uno: pin 2 = interrupt 0, pin 3 = interrupt 1 ; Mega: pin 2 = interrupt 0, pin 3 = interrupt 1, pin 21 = interrupt 2, pin 20 = interrupt 3, pin 19 = interrupt 4, pin 18 = interrupt 5
                                                                               // read http://arduino.cc/en/Reference/AttachInterrupt for details on hardware and interrupts
@@ -174,7 +174,7 @@ define rotator_analog_az A2     // reads analog azimuth voltage from rotator - p
 #endif //FEATURE_GPS
 
 #ifdef FEATURE_POWER_SWITCH
-  #define power_switch 5             // use with FEATURE_POWER_SWITCH
+  #define power_switch 0             // use with FEATURE_POWER_SWITCH
 #endif //FEATURE_POWER_SWITCH
 
 #ifdef FEATURE_EL_POSITION_MEMSIC_2125
@@ -198,8 +198,8 @@ define rotator_analog_az A2     // reads analog azimuth voltage from rotator - p
 //#define reset_pin 22 // if defined, goes HIGH to reset unit
 
 #if defined(FEATURE_AZ_POSITION_A2_ABSOLUTE_ENCODER) || defined(FEATURE_EL_POSITION_A2_ABSOLUTE_ENCODER)
-  #define pin_sei_bus_busy 0
-  #define pin_sei_bus_send_receive 0  
+  #define pin_sei_bus_busy 24
+  #define pin_sei_bus_send_receive 22  
 #endif
 
 #ifdef FEATURE_YWROBOT_I2C_DISPLAY
@@ -227,10 +227,10 @@ define rotator_analog_az A2     // reads analog azimuth voltage from rotator - p
 #endif 
 
 #ifdef FEATURE_AUDIBLE_ALERT
-  #define pin_audible_alert 12
+  #define pin_audible_alert 13
 #endif        
 
-#define pin_status_led 0   // Status LED - blinks when there is rotation in progress
+//#define pin_status_led 0   // Status LED - blinks when there is rotation in progress
 
 // Added 2020.07.24.01
 #define satellite_tracking_active_pin 0
